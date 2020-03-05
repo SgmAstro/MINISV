@@ -31,8 +31,8 @@ overwrite     = True
 # tileid_list = None  # no restriction on tiles
 tileid_list   = [70500, 70502, 70510]
 
-# petals      = range(10)
-petals        = [0, 3, 6, 7, 9]
+petals        = range(10)
+# petals      = [0, 3, 6, 7, 9]
 
 ################################# Setuop ##################################################
 config           = desisurvey.config.Configuration()
@@ -183,7 +183,7 @@ for tileid in np.unique(cframes['tileid']):
 
         if not ALL:
           if (np.sum(mask) < n_exp):
-            print('\n# {} exposures is not enough for TILEID {}, PETAL_LOC {} for a {} coadd.\n'.format(np.sum(mask), tileid, petal_loc, n_exp))
+            print('\n# {} exposures is not enough for TILEID {}, NIGHT {} PETAL_LOC {} for a {} coadd.\n'.format(np.sum(mask), tileid, night, petal_loc, n_exp))
             continue
 
           # Skip the exposures that do not make the split.
