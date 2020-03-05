@@ -23,8 +23,8 @@ nights        = ['20200227', '20200228', '20200229', '20200303']
 
 # number of exposures in a coadded; 1 for single-exposure coadd
 ALL           = False # Overrides n_exp.
-n_exp         = 1
-n_node        = 8
+n_exp         = 4
+n_node        = 2
 
 overwrite     = True
 
