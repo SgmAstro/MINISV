@@ -22,8 +22,8 @@ output_dir    = '/global/cscratch1/sd/mjwilson/BGS/MINISV/coadds/'
 nights        = ['20200227', '20200228', '20200229', '20200303']
 
 # number of exposures in a coadded; 1 for single-exposure coadd
-ALL           = True # Overrides n_exp.
-n_exp         = 4 
+ALL           = False # Overrides n_exp.
+n_exp         = 1
 n_node        = 8
 
 overwrite     = True
@@ -64,7 +64,8 @@ for exposure_dir in exposure_dir_list:
                 if f[0].read_header()['TILEID'] in tileid_list:
                     cframe_list += cframe_list_tmp
 
-cframe_list = sorted(cframe_list)
+                    
+cframe_list          = sorted(cframe_list)
 
 # Gather exposure/petal information
 cframes              = Table()
@@ -150,6 +151,9 @@ cframes.sort(('tileid', 'petal_loc'))
 
 cframes.pprint(max_lines=-1, max_width=-1)
 
+cframes.write('bgs_allcframes.fits', format='fits', overwrite=True)
+
+## 
 output_argument_list = []
 
 if not ALL:
@@ -207,13 +211,13 @@ for tileid in np.unique(cframes['tileid']):
 
             if n_exp == 1:
                 exposure        = os.path.basename(exposure_dir)
-                output_argument = os.path.join('$OUTDIR', str(tileid), night, 'coadd-{}-{}-{}.fits'.format(night, petal_loc, exposure))
+                output_argument = os.path.join('$OUTDIR', 'NEXP{}'.format(n_exp), str(tileid), night, 'coadd-{}-{}-{}.fits'.format(night, petal_loc, exposure))
 
             elif not ALL:
-                output_argument = os.path.join('$OUTDIR', str(tileid), night, 'coadd-{}-{}-{}exp-subset-{}.fits'.format(night, petal_loc, n_exp, subset_index))
+                output_argument = os.path.join('$OUTDIR', 'NEXP{}'.format(n_exp), str(tileid), night, 'coadd-{}-{}-{}exp-subset-{}.fits'.format(night, petal_loc, n_exp, subset_index))
 
             else:
-                output_argument = os.path.join('$OUTDIR', str(tileid), night, 'coadd-{}-{}-allexp.fits'.format(night, petal_loc))
+                output_argument = os.path.join('$OUTDIR', 'ALL', str(tileid), night, 'coadd-{}-{}-allexp.fits'.format(night, petal_loc))
                 
             output_argument_list.append(output_argument)
 
