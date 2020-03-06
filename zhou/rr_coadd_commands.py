@@ -19,12 +19,12 @@ from    astropy.table import Table, vstack, hstack
 redux_dir     = '/global/cfs/cdirs/desi/spectro/redux/daily'       
 output_dir    = '/global/cscratch1/sd/mjwilson/BGS/MINISV/coadds/'
 
-nights        = ['20200227', '20200228', '20200229', '20200303']
+nights        = ['20200225', '20200227', '20200228', '20200229', '20200303']
 
 # number of exposures in a coadded; 1 for single-exposure coadd
 ALL           = False # Overrides n_exp.
 n_exp         = 4
-n_node        = 2
+n_node        = 4
 
 overwrite     = True
 
@@ -33,6 +33,7 @@ tileid_list   = [70500, 70502, 70510]
 
 petals        = range(10)
 # petals      = [0, 3, 6, 7, 9]
+
 
 ################################# Setuop ##################################################
 config           = desisurvey.config.Configuration()

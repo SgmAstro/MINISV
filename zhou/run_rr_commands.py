@@ -5,7 +5,9 @@ run       = True
 
 ctype     = 'rr'  ## ['rr', 'coadd']
 
-commands  = open('commands_{}_nexp_1.sh'.format(ctype), 'r')
+##  commands  = open('commands_{}_nexp_2.sh'.format(ctype), 'r')
+commands  = open('commands_{}_allexp.sh'.format(ctype), 'r')
+
 outdir    = os.environ['OUTDIR']
 
 print('\n\n')
