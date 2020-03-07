@@ -10,7 +10,7 @@ import  desisurvey.config
 import  sys, os, glob, time, warnings
 import  numpy as np
 import  astropy.units as u
-import desisurvey.utils   as      dutils
+import  desisurvey.utils   as      dutils
 
 from    astropy.time  import Time
 from    astropy.table import Table, vstack, hstack
@@ -22,8 +22,8 @@ output_dir    = '/global/cscratch1/sd/mjwilson/BGS/MINISV/coadds/'
 nights        = ['20200225', '20200227', '20200228', '20200229', '20200303']
 
 # number of exposures in a coadded; 1 for single-exposure coadd
-ALL           = False # Overrides n_exp.
-n_exp         = 4
+ALL           = True # Overrides n_exp.
+n_exp         = 1
 n_node        = 4
 
 overwrite     = True
@@ -66,24 +66,25 @@ for exposure_dir in exposure_dir_list:
                     cframe_list += cframe_list_tmp
 
                     
-cframe_list          = sorted(cframe_list)
+cframe_list           = sorted(cframe_list)
 
 # Gather exposure/petal information
-cframes              = Table()
+cframes               = Table()
 
-cframes['cframe']    = np.array(cframe_list)
-cframes['night']     = '20200227'
-cframes['mjd']       = np.zeros(len(cframes), dtype=np.float) - 1.0 
-cframes['lat']       = np.zeros(len(cframes), dtype=np.float)
-cframes['lon']       = np.zeros(len(cframes), dtype=np.float)
-cframes['elv']       = np.zeros(len(cframes), dtype=np.float)
-cframes['tileid']    = np.zeros(len(cframes), dtype=int)
-cframes['expid']     = np.zeros(len(cframes), dtype=int)
-cframes['exptime']   = np.zeros(len(cframes), dtype=np.float)
-cframes['camera']    = ' '
-cframes['petal_loc'] = -1 * np.ones(len(cframes), dtype=np.int32)
-cframes['ra']        = np.zeros(len(cframes), dtype=np.float)
-cframes['dec']       = np.zeros(len(cframes), dtype=np.float)
+cframes['cframe']     = np.array(cframe_list)
+cframes['night']      = '20200227'
+cframes['mjd']        = np.zeros(len(cframes), dtype=np.float) - 1.0 
+cframes['lat']        = np.zeros(len(cframes), dtype=np.float)
+cframes['lon']        = np.zeros(len(cframes), dtype=np.float)
+cframes['elv']        = np.zeros(len(cframes), dtype=np.float)
+cframes['tileid']     = np.zeros(len(cframes), dtype=int)
+cframes['expid']      = np.zeros(len(cframes), dtype=int)
+cframes['exptime']    = np.zeros(len(cframes), dtype=np.float)
+cframes['camera']     = ' '
+cframes['petal_loc']  = -1 * np.ones(len(cframes), dtype=np.int32)
+cframes['spectrograph'] = -1 * np.ones(len(cframes), dtype=np.int32)
+cframes['ra']         = np.zeros(len(cframes), dtype=np.float)
+cframes['dec']        = np.zeros(len(cframes), dtype=np.float)
 
 ##  Celestial.
 cframes['MOONALT']   = np.zeros(len(cframes))
@@ -99,21 +100,24 @@ cframes['SUNSEP']    = np.zeros(len(cframes))
 
 for index, cframe in enumerate(cframes['cframe']):
     with fitsio.FITS(cframe) as f:
-        header                      = f[0].read_header()
-        
-        cframes['mjd'][index]       = header['MJD-OBS']
-        cframes['night'][index]     = header['NIGHT']
-        cframes['tileid'][index]    = header['TILEID']
-        cframes['expid'][index]     = header['EXPID']
-        cframes['camera'][index]    = header['CAMERA'].strip()[0]
-        cframes['petal_loc'][index] = int(header['CAMERA'].strip()[1])
+        header                         = f[0].read_header()
 
-        cframes['lat'][index]       = header['OBS-LAT']
-        cframes['lon'][index] 	    = header['OBS-LONG']
-        cframes['elv'][index] 	    = header['OBS-ELEV']
-        cframes['exptime'][index]   = header['EXPTIME']
-        cframes['ra'][index]        = header['SKYRA']
-        cframes['dec'][index]       = header['SKYDEC']
+        # print(header)
+        
+        cframes['mjd'][index]          = header['MJD-OBS']
+        cframes['night'][index]        = header['NIGHT']
+        cframes['tileid'][index]       = header['TILEID']
+        cframes['expid'][index]        = header['EXPID']
+        cframes['camera'][index]       = header['CAMERA'].strip()[0]
+        # cframes['petal_loc'][index]  = int(header['CAMERA'].strip()[1])
+        cframes['spectrograph'][index] = int(header['CAMERA'].strip()[1])
+        
+        cframes['lat'][index]        = header['OBS-LAT']
+        cframes['lon'][index] 	     = header['OBS-LONG']
+        cframes['elv'][index] 	     = header['OBS-ELEV']
+        cframes['exptime'][index]    = header['EXPTIME']
+        cframes['ra'][index]         = header['SKYRA']
+        cframes['dec'][index]        = header['SKYDEC']
 
         ##  Celestial.
         mayall.date                 = Time(cframes['mjd'][index], format='mjd').datetime
@@ -136,7 +140,6 @@ for index, cframe in enumerate(cframes['cframe']):
         cframes['MOONSEP']          = np.diag(dutils.separation_matrix(cframes['MOONRA'] * u.deg, cframes['MOONDEC'].quantity * u.deg, cframes['ra'] * u.deg, cframes['dec'] * u.deg))
         cframes['SUNSEP']           = np.diag(dutils.separation_matrix(cframes['SUNRA'] * u.deg, cframes['SUNDEC'].quantity * u.deg, cframes['ra'] * u.deg, cframes['dec'] * u.deg))
         
-        
 # Sanity check: each petal must have three cframe files
 for expid in np.unique(cframes['expid']):
     mask_expid = cframes['expid']==expid
@@ -153,6 +156,8 @@ cframes.sort(('tileid', 'petal_loc'))
 cframes.pprint(max_lines=-1, max_width=-1)
 
 cframes.write('bgs_allcframes.fits', format='fits', overwrite=True)
+
+exit(0)
 
 ## 
 output_argument_list = []
