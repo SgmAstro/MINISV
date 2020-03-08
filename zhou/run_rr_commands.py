@@ -1,11 +1,11 @@
 import os
 
 
-run       =  True
-reverse   = False
-overwrite = False
+run        =  True
+reverse    = False
+overwrite  = False
 
-ctype     = 'rr'  ## ['rr', 'coadd']
+ctype      = 'rr'  ## ['rr', 'coadd']
 
 # commands = open('commands_{}_allexp.sh'.format(ctype), 'r')
 commands   = open('commands_{}_nexp_1.sh'.format(ctype), 'r')

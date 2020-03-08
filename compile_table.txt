@@ -1,0 +1,21 @@
+\documentclass[a4paper, landscape]{article}
+
+\usepackage{booktabs}
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage{multicol}   % Multi-column entries in tables
+\usepackage{bm}		% Bold maths symbols, including upright Greek
+\usepackage{pdflscape}	% Landscape pages
+\usepackage{subfigure}
+\usepackage[a2paper, margin=1in, landscape]{geometry}
+
+\begin{document}
+
+\vspace*{\fill}
+\begin{center}
+\input{bgs_table_v2.txt}
+\end{center}
+\vspace*{\fill}
+
+\end{document}

@@ -15,20 +15,22 @@ import  desisurvey.utils   as      dutils
 from    astropy.time  import Time
 from    astropy.table import Table, vstack, hstack
 
+# os.system('source ./env.sh')
 
-redux_dir     = '/global/cfs/cdirs/desi/spectro/redux/daily'       
-output_dir    = '/global/cscratch1/sd/mjwilson/BGS/MINISV/coadds/'
+version       = os.environ['VERSION']
+redux_dir     = os.environ['REDUXDIR'] + '/' 
+output_dir    = os.environ['OUTDIR'] + '/'
 
 nights        = ['20200225', '20200227', '20200228', '20200229', '20200303']
 
 # number of exposures in a coadded; 1 for single-exposure coadd
-ALL           = True # Overrides n_exp.
-n_exp         = 1
+ALL           = False   # Overrides n_exp.
+n_exp         = 2
 n_node        = 4
 
 overwrite     = True
 
-# tileid_list = None  # no restriction on tiles
+# tileid_list = None   # no restriction on tiles
 tileid_list   = [70500, 70502, 70510]
 
 petals        = range(10)
@@ -82,42 +84,45 @@ cframes['expid']      = np.zeros(len(cframes), dtype=int)
 cframes['exptime']    = np.zeros(len(cframes), dtype=np.float)
 cframes['camera']     = ' '
 cframes['petal_loc']  = -1 * np.ones(len(cframes), dtype=np.int32)
-cframes['spectrograph'] = -1 * np.ones(len(cframes), dtype=np.int32)
 cframes['ra']         = np.zeros(len(cframes), dtype=np.float)
 cframes['dec']        = np.zeros(len(cframes), dtype=np.float)
 
 ##  Celestial.
-cframes['MOONALT']   = np.zeros(len(cframes))
-cframes['MOONRA']    = np.zeros(len(cframes))
-cframes['MOONDEC']   = np.zeros(len(cframes))
-cframes['MOONFRAC']  = np.zeros(len(cframes))
-cframes['MOONSEP']   = np.zeros(len(cframes))
+cframes['MOON_ALT']   = np.zeros(len(cframes))
+cframes['MOON_RA']    = np.zeros(len(cframes))
+cframes['MOON_DEC']   = np.zeros(len(cframes))
+cframes['MOON_FRAC']  = np.zeros(len(cframes))
+cframes['MOON_SEP']   = np.zeros(len(cframes))
 
-cframes['SUNALT']    = np.zeros(len(cframes))
-cframes['SUNRA']     = np.zeros(len(cframes))
-cframes['SUNDEC']    = np.zeros(len(cframes))
-cframes['SUNSEP']    = np.zeros(len(cframes))
+cframes['SUN_ALT']    = np.zeros(len(cframes))
+cframes['SUN_RA']     = np.zeros(len(cframes))
+cframes['SUN_DEC']    = np.zeros(len(cframes))
+cframes['SUN_SEP']    = np.zeros(len(cframes))
+
+_print = 1
 
 for index, cframe in enumerate(cframes['cframe']):
     with fitsio.FITS(cframe) as f:
         header                         = f[0].read_header()
 
-        # print(header)
-        
+        if _print:
+           print(header)
+
+           _print = 0 
+          
         cframes['mjd'][index]          = header['MJD-OBS']
         cframes['night'][index]        = header['NIGHT']
         cframes['tileid'][index]       = header['TILEID']
         cframes['expid'][index]        = header['EXPID']
         cframes['camera'][index]       = header['CAMERA'].strip()[0]
-        # cframes['petal_loc'][index]  = int(header['CAMERA'].strip()[1])
-        cframes['spectrograph'][index] = int(header['CAMERA'].strip()[1])
+        cframes['petal_loc'][index]    = int(header['CAMERA'].strip()[1])
         
-        cframes['lat'][index]        = header['OBS-LAT']
-        cframes['lon'][index] 	     = header['OBS-LONG']
-        cframes['elv'][index] 	     = header['OBS-ELEV']
-        cframes['exptime'][index]    = header['EXPTIME']
-        cframes['ra'][index]         = header['SKYRA']
-        cframes['dec'][index]        = header['SKYDEC']
+        cframes['lat'][index]          = header['OBS-LAT']
+        cframes['lon'][index] 	       = header['OBS-LONG']
+        cframes['elv'][index] 	       = header['OBS-ELEV']
+        cframes['exptime'][index]      = header['EXPTIME']
+        cframes['ra'][index]           = header['SKYRA']
+        cframes['dec'][index]          = header['SKYDEC']
 
         ##  Celestial.
         mayall.date                 = Time(cframes['mjd'][index], format='mjd').datetime
@@ -128,17 +133,17 @@ for index, cframe in enumerate(cframes['cframe']):
         _sun                        = ephem.Sun()
         _sun.compute(mayall)
 
-        cframes['MOONALT'][index]   = 180./np.pi*_moon.alt
-        cframes['MOONRA'][index]    = 180./np.pi*_moon.ra
-        cframes['MOONDEC'][index]   = 180./np.pi*_moon.dec
-        cframes['MOONFRAC'][index]  = _moon.moon_phase
+        cframes['MOON_ALT'][index]  = 180./np.pi*_moon.alt
+        cframes['MOON_RA'][index]   = 180./np.pi*_moon.ra
+        cframes['MOON_DEC'][index]  = 180./np.pi*_moon.dec
+        cframes['MOON_FRAC'][index] = _moon.moon_phase
 
-        cframes['SUNALT'][index]    = 180./np.pi*_sun.alt
-        cframes['SUNRA'][index]     = 180./np.pi*_sun.ra
-        cframes['SUNDEC'][index]    = 180./np.pi*_sun.dec
+        cframes['SUN_ALT'][index]   = 180./np.pi*_sun.alt
+        cframes['SUN_RA'][index]    = 180./np.pi*_sun.ra
+        cframes['SUN_DEC'][index]   = 180./np.pi*_sun.dec
 
-        cframes['MOONSEP']          = np.diag(dutils.separation_matrix(cframes['MOONRA'] * u.deg, cframes['MOONDEC'].quantity * u.deg, cframes['ra'] * u.deg, cframes['dec'] * u.deg))
-        cframes['SUNSEP']           = np.diag(dutils.separation_matrix(cframes['SUNRA'] * u.deg, cframes['SUNDEC'].quantity * u.deg, cframes['ra'] * u.deg, cframes['dec'] * u.deg))
+        cframes['MOON_SEP']         = np.diag(dutils.separation_matrix(cframes['MOON_RA'] * u.deg, cframes['MOON_DEC'].quantity * u.deg, cframes['ra'] * u.deg, cframes['dec'] * u.deg))
+        cframes['SUN_SEP']          = np.diag(dutils.separation_matrix(cframes['SUN_RA'] * u.deg, cframes['SUN_DEC'].quantity * u.deg, cframes['ra'] * u.deg, cframes['dec'] * u.deg))
         
 # Sanity check: each petal must have three cframe files
 for expid in np.unique(cframes['expid']):
@@ -155,9 +160,7 @@ cframes.sort(('tileid', 'petal_loc'))
 
 cframes.pprint(max_lines=-1, max_width=-1)
 
-cframes.write('bgs_allcframes.fits', format='fits', overwrite=True)
-
-exit(0)
+cframes.write('bgs_allcframes_{}.fits'.format(version), format='fits', overwrite=True)
 
 ## 
 output_argument_list = []
@@ -213,17 +216,17 @@ for tileid in np.unique(cframes['tileid']):
 
             for index in range(len(subset)):
                 exposure_dir    = os.path.dirname(subset['cframe'][index])
-                input_argument += os.path.join(exposure_dir.replace(redux_dir, '$REDUXDIR'), 'cframe-[brz]{}-*.fits ').format(petal_loc)
+                input_argument += os.path.join(exposure_dir.replace(redux_dir, '$REDUXDIR/'), 'cframe-[brz]{}-*.fits ').format(petal_loc)
 
-            if n_exp == 1:
+            if (not ALL) & (n_exp == 1):
                 exposure        = os.path.basename(exposure_dir)
-                output_argument = os.path.join('$OUTDIR', 'NEXP{}'.format(n_exp), str(tileid), night, 'coadd-{}-{}-{}.fits'.format(night, petal_loc, exposure))
+                output_argument = os.path.join('$OUTDIR/', 'NEXP{}'.format(n_exp), str(tileid), night, 'coadd-{}-{}-{}.fits'.format(night, petal_loc, exposure))
 
             elif not ALL:
-                output_argument = os.path.join('$OUTDIR', 'NEXP{}'.format(n_exp), str(tileid), night, 'coadd-{}-{}-{}exp-subset-{}.fits'.format(night, petal_loc, n_exp, subset_index))
+                output_argument = os.path.join('$OUTDIR/', 'NEXP{}'.format(n_exp), str(tileid), night, 'coadd-{}-{}-{}exp-subset-{}.fits'.format(night, petal_loc, n_exp, subset_index))
 
             else:
-                output_argument = os.path.join('$OUTDIR', 'ALL', str(tileid), night, 'coadd-{}-{}-allexp.fits'.format(night, petal_loc))
+                output_argument = os.path.join('$OUTDIR/', 'ALL', str(tileid), night, 'coadd-{}-{}-allexp.fits'.format(night, petal_loc))
                 
             output_argument_list.append(output_argument)
 

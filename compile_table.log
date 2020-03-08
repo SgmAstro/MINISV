@@ -1,0 +1,431 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.9.22)  8 MAR 2020 08:29
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**compile_table.txt
+(./compile_table.txt
+LaTeX2e <2018-12-01>
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/base/article.
+cls
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/base/size10.c
+lo
+File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/booktabs/book
+tabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen103
+\lightrulewidth=\dimen104
+\cmidrulewidth=\dimen105
+\belowrulesep=\dimen106
+\belowbottomsep=\dimen107
+\aboverulesep=\dimen108
+\abovetopsep=\dimen109
+\cmidrulesep=\dimen110
+\cmidrulekern=\dimen111
+\defaultaddspace=\dimen112
+\@cmidla=\count88
+\@cmidlb=\count89
+\@aboverulesep=\dimen113
+\@belowrulesep=\dimen114
+\@thisruleclass=\count90
+\@lastruleclass=\count91
+\@thisrulewidth=\dimen115
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/graphics/grap
+hicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/graphics/keyv
+al.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/graphics/grap
+hics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/graphics/trig
+.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/graphics-cfg/
+graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/graphics-def/
+pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen116
+\Gin@req@width=\dimen117
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/amsmath/amsma
+th.sty
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/amsmath/amste
+xt.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/amsmath/amsge
+n.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen118
+))
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/amsmath/amsbs
+y.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen119
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/amsmath/amsop
+n.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count92
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count93
+\leftroot@=\count94
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count95
+\DOTSCASE@=\count96
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen120
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count97
+\c@MaxMatrixCols=\count98
+\dotsspace@=\muskip10
+\c@parentequation=\count99
+\dspbrk@lvl=\count100
+\tag@help=\toks16
+\row@=\count101
+\column@=\count102
+\maxfields@=\count103
+\andhelp@=\toks17
+\eqnshift@=\dimen121
+\alignsep@=\dimen122
+\tagshift@=\dimen123
+\tagwidth@=\dimen124
+\totwidth@=\dimen125
+\lineht@=\dimen126
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/amsfonts/amss
+ymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/amsfonts/amsf
+onts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/tools/multico
+l.sty
+Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
+\c@tracingmulticols=\count104
+\mult@box=\box29
+\multicol@leftmargin=\dimen127
+\c@unbalance=\count105
+\c@collectmore=\count106
+\doublecol@number=\count107
+\multicoltolerance=\count108
+\multicolpretolerance=\count109
+\full@width=\dimen128
+\page@free=\dimen129
+\premulticols=\dimen130
+\postmulticols=\dimen131
+\multicolsep=\skip46
+\multicolbaselineskip=\skip47
+\partial@page=\box30
+\last@line=\box31
+\maxbalancingoverflow=\dimen132
+\mult@rightbox=\box32
+\mult@grightbox=\box33
+\mult@gfirstbox=\box34
+\mult@firstbox=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\c@columnbadness=\count110
+\c@finalcolumnbadness=\count111
+\last@try=\dimen133
+\multicolovershoot=\dimen134
+\multicolundershoot=\dimen135
+\mult@nat@firstbox=\box53
+\colbreak@box=\box54
+\mc@col@check@num=\count112
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 207.
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/oberdiek/pdfl
+scape.sty
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/graphics/lsca
+pe.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/generic/oberdiek/if
+pdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/generic/ifxetex/ifx
+etex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+))
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/subfigure/sub
+figure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip48
+\subfigcapskip=\skip49
+\subfigcaptopadj=\dimen136
+\subfigbottomskip=\skip50
+\subfigcapmargin=\dimen137
+\subfiglabelskip=\skip51
+\c@subfigure=\count113
+\c@lofdepth=\count114
+\c@subtable=\count115
+\c@lotdepth=\count116
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/subfigure/sub
+figure.cfg)
+\subfig@top=\skip52
+\subfig@bottom=\skip53
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/geometry/geom
+etry.sty
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/generic/oberdiek/if
+vtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+\Gm@cnth=\count117
+\Gm@cntv=\count118
+\c@Gm@tempcnt=\count119
+\Gm@bindingoffset=\dimen138
+\Gm@wd@mp=\dimen139
+\Gm@odd@mp=\dimen140
+\Gm@even@mp=\dimen141
+\Gm@layoutwidth=\dimen142
+\Gm@layoutheight=\dimen143
+\Gm@layouthoffset=\dimen144
+\Gm@layoutvoffset=\dimen145
+\Gm@dimlist=\toks20
+) (./compile_table.aux)
+\openout1 = `compile_table.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/context/base/mkii/s
+upp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count120
+\scratchdimen=\dimen146
+\scratchbox=\box55
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count123
+\MPscratchDim=\dimen147
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
+\everyMPtoPDFconversion=\toks22
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/oberdiek/epst
+opdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/generic/oberdiek/in
+fwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/oberdiek/grfe
+xt.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/generic/oberdiek/kv
+definekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/generic/oberdiek/lt
+xcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/oberdiek/kvop
+tions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/generic/oberdiek/kv
+setkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/generic/oberdiek/et
+excmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/generic/oberdiek/if
+luatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+))))
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/generic/oberdiek/pd
+ftexcmds.sty
+Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/latexconfig/e
+pstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a2paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: landscape 
+* h-part:(L,W,R)=(72.26999pt, 1545.55371pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 1050.47577pt, 72.26999pt)
+* \paperwidth=1690.09369pt
+* \paperheight=1195.01575pt
+* \textwidth=1545.55371pt
+* \textheight=1050.47577pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=144.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(./bgs_table_v2.txt
+LaTeX Font Info:    Try loading font information for U+msa on input line 1.
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/amsfonts/umsa
+.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 1.
+
+(/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/amsfonts/umsb
+.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)) [1
+
+{/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-var/fonts/map/pdftex/updmap/
+pdftex.map}] (./compile_table.aux) ) 
+Here is how much of TeX's memory you used:
+ 3241 strings out of 492609
+ 46160 string characters out of 6119553
+ 147327 words of memory out of 5000000
+ 7100 multiletter control sequences out of 15000+600000
+ 8096 words of font info for 31 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,7n,32p,341b,156s stack positions out of 5000i,500n,10000p,200000b,80000s
+</global/u2/m/mjwilson/usr/src/tex-live/201
+9/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on compile_table.pdf (1 page, 20727 bytes).
+PDF statistics:
+ 12 PDF objects out of 1000 (max. 8388607)
+ 7 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
