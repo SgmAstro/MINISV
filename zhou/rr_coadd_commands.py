@@ -3,6 +3,7 @@ from    __future__ import division, print_function
 
 import  ephem
 import  fitsio
+import  healpy
 import  desisurvey.config
 import  sys, os, glob, time, warnings
 import  numpy                as     np
@@ -13,6 +14,8 @@ from    astropy.time         import Time
 from    astropy.table        import Table, vstack, hstack
 from    astropy.coordinates  import Angle
 from    desisurvey.utils     import get_airmass
+from    desiutil             import dust
+from    astropy.coordinates  import SkyCoord
 
 # os.system('source ./env.sh')
 
@@ -26,6 +29,7 @@ nights        = ['20200225', '20200227', '20200228', '20200229', '20200303']
 ALL           = False   # Overrides n_exp.
 n_exp         = 2
 n_node        = 4
+nside         = 512
 
 overwrite     = True
 
@@ -92,6 +96,7 @@ cframes['SUN_DEC']    = np.zeros(len(cframes), dtype=np.float)
 cframes['SUN_SEP']    = np.zeros(len(cframes), dtype=np.float)
 
 cframes['AIRMASS']    = np.zeros(len(cframes), dtype=np.float)
+cframes['EBV']        = np.zeros(len(cframes), dtype=np.float)
 
 _print                = 1
 
@@ -151,7 +156,14 @@ cframes['SUN_SEP']  = np.diag(dutils.separation_matrix(cframes['SUN_RA'] * u.deg
                                                        cframes['ra']     * u.deg, cframes['dec']     * u.deg))
 
 cframes['AIRMASS']  = np.array([get_airmass(Time(cframes['mjd'][pair[0]], format='mjd'), np.atleast_1d(cframes['ra'][pair[0]]) * u.deg, np.atleast_1d(cframes['dec'][pair[0]]) * u.deg) for pair in enumerate(cframes['mjd'])])
-        
+
+##
+coord               = SkyCoord(ra=cframes['ra']*u.deg, dec=cframes['dec']*u.deg, frame='icrs')
+coordgal            = coord.galactic
+la, ba              = coordgal.l.value, coordgal.b.value
+
+cframes['EBV']      = dust.ebv(la, ba, frame='galactic', mapdir=os.getenv('DUST_DIR') + '/maps', scaling=1)
+
 # Sanity check: each petal must have three cframe files.
 for expid in np.unique(cframes['expid']):
     mask_expid = cframes['expid'] == expid
@@ -171,6 +183,8 @@ cframes.sort(('tileid', 'petal_loc'))
 ##  cframes.pprint(max_width=-1)
 
 cframes.write('bgs_allcframes_{}.fits'.format(version), format='fits', overwrite=True)
+
+exit(0)
 
 ## 
 output_argument_list = []

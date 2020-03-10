@@ -1,0 +1,3 @@
+--  Run feasibgs_moon.py to generate grid of band-pass fluxes for the sky monitor using CHH moon model.
+--  Run moons.py to start modelling the dependence of this flux on moon sep., moon alt.  Command line argument of the airmass. 
+--  Run moonfit.py to modelling the remaining dependence of these parameters to these models on moonfrac and airmass.  
