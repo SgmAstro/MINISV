@@ -14,7 +14,7 @@
 
 \vspace*{\fill}
 \begin{center}
-\input{bgs_table_v2.txt}
+\input{bgs_reqtime_v2.txt}
 \end{center}
 \vspace*{\fill}
 
