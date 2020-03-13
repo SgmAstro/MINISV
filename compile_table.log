@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.9.22)  10 MAR 2020 21:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.9.22)  11 MAR 2020 13:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -396,7 +396,7 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(./bgs_reqtime_v2.txt
+(./bgs_completeness_v2.txt
 LaTeX Font Info:    Try loading font information for U+msa on input line 1.
 
 (/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/amsfonts/umsa
@@ -408,26 +408,21 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 1.
 (/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-dist/tex/latex/amsfonts/umsb
 .fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
-Overfull \hbox (20.77734pt too wide) in paragraph at lines 1--18
- [] 
- []
-
-[1
+)) [1
 
 {/global/u2/m/mjwilson/usr/src/tex-live/2019/texmf-var/fonts/map/pdftex/updmap/
 pdftex.map}] (./compile_table.aux) ) 
 Here is how much of TeX's memory you used:
  3241 strings out of 492609
- 46166 string characters out of 6119553
- 140327 words of memory out of 5000000
+ 46181 string characters out of 6119553
+ 121327 words of memory out of 5000000
  7100 multiletter control sequences out of 15000+600000
  8096 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,7n,32p,394b,156s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,7n,32p,383b,156s stack positions out of 5000i,500n,10000p,200000b,80000s
 </global/u2/m/mjwilson/usr/src/tex-live/201
 9/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on compile_table.pdf (1 page, 20958 bytes).
+Output written on compile_table.pdf (1 page, 16957 bytes).
 PDF statistics:
  12 PDF objects out of 1000 (max. 8388607)
  7 compressed objects within 1 object stream
